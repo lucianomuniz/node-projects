@@ -1,6 +1,6 @@
 const yargs = require('yargs');
 
-const { getTownWeather, getTownCoordinates } = require('./geo');
+const { getLocationCoordinates, getLocationWeather } = require('./geoLocation');
 
 //Customize yargs
 yargs.version('1.0.0');
@@ -10,14 +10,14 @@ yargs.command({
   command: 'weather',
   describe: 'Get the weather information',
   builder: {
-    town: {
-      description: 'The name of the town',
+    location: {
+      description: 'The location address, city, state or country',
       demandOption: true,
       type: 'string',
     },
   },
   handler(argv) {
-    getTownWeather(argv.town.replace(' ', '%20'));
+    getLocationWeather(argv.location);
   },
 });
 
@@ -26,14 +26,14 @@ yargs.command({
   command: 'coordinates',
   describe: 'Get the latitude and longitude coordinates',
   builder: {
-    town: {
-      description: 'The name of the town',
+    location: {
+      description: 'The location address, city, state or country',
       demandOption: true,
       type: 'string',
     },
   },
   handler(argv) {
-    getTownCoordinates(argv.town.replace(' ', '%20'));
+    getLocationCoordinates(argv.location);
   },
 });
 
