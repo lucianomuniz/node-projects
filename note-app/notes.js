@@ -52,8 +52,12 @@ const readNote = (title) => {
 };
 
 const saveNotes = (notes) => {
-  const dataJSON = JSON.stringify(notes);
-  fs.writeFileSync('notes.json', dataJSON);
+  try {
+    const dataJSON = JSON.stringify(notes);
+    fs.writeFileSync('notes.json', dataJSON);
+  } catch (e) {
+    console.log(chalk.red.inverse('Error to write notes file!'));
+  }
 };
 
 const loadNotes = () => {
