@@ -1,4 +1,3 @@
-const { default: chalk } = require('chalk');
 const yargs = require('yargs');
 const { listNotes, addNote, removeNote, readNote } = require('./notes.js');
 
