@@ -6,17 +6,17 @@ const forecast = (latitude, longitude, callback) => {
   const API_URL = 'http://api.weatherstack.com';
   const url = `${API_URL}/current?access_key=${API_KEY}&query=${latitude},${longitude}&units=m`;
 
-  request({ url: url, json: true }, (error, response) => {
+  request({ url, json: true }, (error, { body }) => {
     if (error) {
       callback('Unable to connect to location services!', undefined);
-    } else if (response.body.error) {
+    } else if (body.error) {
       callback('Unable to find location. Try another search.', undefined);
     } else {
       callback(undefined, {
-        weather: response.body.current.weather_descriptions[0],
-        temperature: response.body.current.temperature,
-        feelslike: response.body.current.feelslike,
-        preciptation: response.body.current.precip,
+        weather: body.current.weather_descriptions[0],
+        temperature: body.current.temperature,
+        feelslike: body.current.feelslike,
+        preciptation: body.current.precip,
       });
     }
   });

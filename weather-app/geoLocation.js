@@ -4,7 +4,7 @@ const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
 
 const getLocationCoordinates = (address) => {
-  geocode(address, (error, { location, latitude, longitude }) => {
+  geocode(address, (error, { location, latitude, longitude } = {}) => {
     if (error) return console.log(chalk.red('Error', error));
 
     console.log(
@@ -16,16 +16,14 @@ const getLocationCoordinates = (address) => {
 };
 
 const getLocationWeather = (address) => {
-  geocode(address, (error, { location, latitude, longitude }) => {
-    if (error) return console.log('Error', error);
+  geocode(address, (error, { location, latitude, longitude } = {}) => {
+    if (error) return console.log(chalk.red('Error', error));
 
     forecast(
       latitude,
       longitude,
       (error, { weather, temperature, feelslike, preciptation }) => {
-        if (error) {
-          return console.log('Error', error);
-        }
+        if (error) return console.log(chalk.red('Error', error));
 
         console.log(
           chalk.inverse(
