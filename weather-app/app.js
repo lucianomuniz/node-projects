@@ -24,7 +24,7 @@ yargs.command({
 // Create coordinates command
 yargs.command({
   command: 'coordinates',
-  describe: 'Get the logitude and latitude coordinates',
+  describe: 'Get the latitude and longitude coordinates',
   builder: {
     town: {
       description: 'The name of the town',
