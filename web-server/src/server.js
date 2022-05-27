@@ -8,7 +8,7 @@ app.set('view engine', 'hbs');
 app.use(express.static(publicDirPath));
 
 app.get('', (req, res) => {
-  res.render('web-server/index');
+  res.render('index');
 });
 
 app.get('/weather', (req, res) => {
