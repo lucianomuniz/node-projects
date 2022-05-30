@@ -23,12 +23,14 @@ const search = document.querySelector('input');
 const messageOne = document.querySelector('#message-one');
 const messageTwo = document.querySelector('#message-two');
 
-messageOne.textContent = 'Loading...';
-messageTwo.textContent = '';
-
 weatherForm.addEventListener('submit', async (e) => {
   e.preventDefault();
+
   const location = search.value;
+
+  messageOne.textContent = 'Loading...';
+  messageTwo.textContent = '';
+
   const url = `/weather?address=${location}`;
   const data = await getFetch(url);
   if (data.error) {
