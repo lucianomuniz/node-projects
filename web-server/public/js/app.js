@@ -24,7 +24,7 @@ const messageOne = document.querySelector('#message-one');
 const messageTwo = document.querySelector('#message-two');
 
 messageOne.textContent = 'Loading...';
-messageOne.textContent = '';
+messageTwo.textContent = '';
 
 weatherForm.addEventListener('submit', async (e) => {
   e.preventDefault();
