@@ -29,7 +29,7 @@ messageOne.textContent = '';
 weatherForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const location = search.value;
-  const url = `http://localhost:3000/weather?address=${location}`;
+  const url = `/weather?address=${location}`;
   const data = await getFetch(url);
   if (data.error) {
     messageOne.textContent = data.error;
