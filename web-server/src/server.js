@@ -60,11 +60,14 @@ app.get('/weather', (req, res) => {
       forecast(
         latitude,
         longitude,
-        (error, { weather, temperature, feelslike, preciptation } = {}) => {
+        (
+          error,
+          { weather, temperature, feelslike, preciptation, humidity } = {}
+        ) => {
           if (error) return res.send({ error });
 
           res.send({
-            forecast: `It is ${weather.toLowerCase()}, currently ${temperature} degrees out, but fells like ${feelslike} degrees, with a ${preciptation}% chance of rain.`,
+            forecast: `It is ${weather.toLowerCase()}, currently ${temperature} degrees out, but fells like ${feelslike} degrees, with a ${preciptation}% chance of rain. The humidity is ${humidity}%.`,
             location,
             address: req.query.address,
           });
