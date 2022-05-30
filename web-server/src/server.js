@@ -40,7 +40,8 @@ app.get('/help', (req, res) => {
   res.render('help', {
     title: 'Help',
     name: 'Robot Tech',
-    helpMessage: 'Press F1 if you have any question.',
+    helpMessage:
+      'Search for the address or location Weather using the input field and clicking the button at Home Page.',
   });
 });
 
