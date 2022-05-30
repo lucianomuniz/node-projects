@@ -6,7 +6,8 @@
   "author": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npm run dev --prefix web-server"
+    "dev": "npm run dev --prefix web-server",
+    "start": "npm start --prefix web-server"
   },
   "license": "ISC",
   "dependencies": {
